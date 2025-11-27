@@ -167,4 +167,44 @@ Projet réalisé dans le cadre de la formation Diginamic - Node.js & MongoDB
 
 ## 📝 Licence
 
+## 📜 Exercice 3 : Scripts de scénario mongosh
+
+### Objectif
+
+Créer un script MongoDB shell automatique qui exécute un scénario complet :
+
+1. **Insertion** : Ajouter 6 livres dans la collection
+2. **Suppression simple** : Supprimer un livre spécifique par son titre ("1984")
+3. **Suppression multiple** : Supprimer tous les livres d'un auteur (J.K. Rowling)
+
+### Scripts disponibles
+```bash
+# Exécuter le scénario complet
+npm run scenario:livre
+
+# Nettoyer la collection
+npm run clean:livre
+```
+
+### Résultat du scénario
+```
+📝 ÉTAPE 1 : Insertion de 6 livres
+   ✅ 6 livre(s) inséré(s)
+
+🗑️  ÉTAPE 2 : Suppression de "1984"
+   ✅ 1 livre supprimé (5 livres restants)
+
+🗑️  ÉTAPE 3 : Suppression de tous les J.K. Rowling
+   ✅ 3 livres supprimés (2 livres restants)
+
+📚 Livres restants :
+   - "Le Seigneur des Anneaux" par J. R. R. Tolkien (1954)
+   - "Le Petit Prince" par Antoine de Saint-Exupéry (1943)
+```
+
+### Fichiers
+
+- `scripts/scenario-livre.js` - Scénario complet d'insertion et suppression
+- `scripts/clean-livre.js` - Nettoyage de la collection
+
 ISC
