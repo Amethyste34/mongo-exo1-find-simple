@@ -9,8 +9,10 @@
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "test:games": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/gamesService.test.js",
     "test:livre": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/livreService.test.js",
+    "test:city": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/cityService.test.js",
     "setup:livre": "node scripts/setup-livre-collection.js",
     "scenario:livre": "mongosh < scripts/scenario-livre.js",
+    "scenario:city": "mongosh < scripts/scenario-city.js",
     "clean:livre": "mongosh < scripts/clean-livre.js"
   },
   "keywords": ["mongodb", "jest", "testing"],

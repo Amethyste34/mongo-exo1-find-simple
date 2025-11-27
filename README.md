@@ -207,4 +207,58 @@ npm run clean:livre
 - `scripts/scenario-livre.js` - Scénario complet d'insertion et suppression
 - `scripts/clean-livre.js` - Nettoyage de la collection
 
+## 🏙️ Exercice 4 : Modifications de tableaux (collection city)
+
+### Objectifs
+
+Manipulation avancée des tableaux MongoDB avec la collection `city` (1000 villes).
+
+### Question 1 : Modifications simples
+
+- Modifier le nom d'une ville
+- Ajuster les coordonnées de Lyon
+- Ajouter un champ `population` à Lyon
+
+### Question 2 : Modifications de tableaux
+
+- **$addToSet + $each** : Ajouter plusieurs tags à toutes les villes
+- **$pull** : Supprimer un tag spécifique de toutes les villes
+- **$pop** : Supprimer le premier élément des tags de Bourges
+- **$unset** : Supprimer tous les tags d'une ville
+
+### Opérateurs MongoDB utilisés
+
+| Opérateur | Usage | Exemple |
+|-----------|-------|---------|
+| `$set` | Modifier/ajouter un champ | Changer les coordonnées |
+| `$addToSet` | Ajouter sans doublons | Ajouter des tags |
+| `$each` | Ajouter plusieurs éléments | Ajouter plusieurs tags à la fois |
+| `$pull` | Supprimer une valeur | Retirer un tag spécifique |
+| `$pop` | Supprimer premier/dernier | Retirer le premier tag (-1) |
+| `$unset` | Supprimer un champ | Supprimer tous les tags |
+
+### Prérequis
+
+Importer le fichier `city.json` dans la collection `city` :
+```bash
+# Via MongoDB Compass (GUI)
+# ou via mongoimport :
+mongoimport --db exercice --collection city --file city.json --jsonArray
+```
+
+### Lancer les tests
+```bash
+# Tests unitaires
+npm run test:city
+
+# Scénario mongosh
+npm run scenario:city
+```
+
+### Résultats attendus
+
+- **Tests unitaires** : 9 tests ✅
+- **Villes dans la base** : 1000
+- **Modifications** : Opérations sur tableaux réussies
+
 ISC
