@@ -261,4 +261,100 @@ npm run scenario:city
 - **Villes dans la base** : 1000
 - **Modifications** : Opérations sur tableaux réussies
 
+## 🏪 Exercice 5 : Requêtes avancées (collection magasins)
+
+### Objectifs
+
+Maîtriser les requêtes MongoDB complexes avec opérateurs de comparaison, filtres conditionnels et requêtes géospatiales.
+
+### Structure des données
+```json
+{
+  "name": "Google store",
+  "rate": 95,
+  "votes": 10,
+  "createdAt": "2023-01-01",
+  "updatedAt": "2023-03-15",
+  "category": "electronic",
+  "location": {
+    "type": "Point",
+    "coordinates": [50.123, 10.456]
+  },
+  "products": [
+    {
+      "name": "Pixel 8",
+      "brand": "Google",
+      "price": 799
+    }
+  ]
+}
+```
+
+### Partie 1 : Requêtes de base
+
+| Question | Description | Opérateurs utilisés |
+|----------|-------------|---------------------|
+| 1 | Le magasin le moins bien noté | `sort()`, `limit()` |
+| 2 | Le magasin le plus ancien | `sort()`, `limit()` |
+| 3 | Magasins avec note entre 50 et 80 | `$gte`, `$lte` |
+| 4 | Magasins créés en 2023 | `$gte`, `$lt` (dates) |
+
+### Partie 2 : Requêtes conditionnelles
+
+| Question | Description | Opérateurs utilisés |
+|----------|-------------|---------------------|
+| 5 | Magasins sans catégories | `$or`, `$exists`, `null` |
+| 6 | Magasins avec note > 75 | `$gt` |
+| 7 | Magasins avec > 50 votes ET note > 60 | `$gt` (multiple) |
+
+### Défi : Requêtes complexes
+
+| Question | Description | Opérateurs utilisés |
+|----------|-------------|---------------------|
+| 8 | Magasins proposant des produits Google | Requêtes dans tableaux imbriqués |
+| 9 | Magasin le plus proche d'un point | `$near`, index `2dsphere` |
+
+### Opérateurs MongoDB
+
+**Comparaison**
+- `$gt` : Greater than (>)
+- `$gte` : Greater than or equal (>=)
+- `$lt` : Less than (<)
+- `$lte` : Less than or equal (<=)
+
+**Logiques**
+- `$or` : OU logique
+- `$and` : ET logique (implicite)
+
+**Existence**
+- `$exists` : Vérifie si un champ existe
+
+**Géospatiaux**
+- `$near` : Trouve les documents proches d'un point
+- Index `2dsphere` : Requiert pour les requêtes géospatiales
+
+### Prérequis
+
+Importer le fichier `magasins.json` :
+```bash
+# Via MongoDB Compass (GUI)
+# ou via mongoimport :
+mongoimport --db exercice --collection magasins --file magasins.json --jsonArray
+```
+
+### Lancer les tests
+```bash
+# Tests unitaires
+npm run test:magasins
+
+# Scénario mongosh
+npm run scenario:magasins
+```
+
+### Résultats attendus
+
+- **Tests unitaires** : 11 tests ✅
+- **Magasins dans la base** : 6
+- **Requêtes géospatiales** : Nécessite index 2dsphere
+
 ISC
